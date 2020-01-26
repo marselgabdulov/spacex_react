@@ -3,6 +3,7 @@ import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 import { withRouter } from 'react-router-dom';
 import Moment from 'react-moment';
+import { Link } from 'react-router-dom';
 import Loader from '../Loader/Loader';
 import tesla from './tesla.jpg';
 import './Launch.css';
@@ -65,7 +66,7 @@ function Launch(props) {
           <b>Mission name:</b> {data.launch.mission_name}
         </p>
         <p>
-          <b>Rocken name:</b> {data.launch.rocket.rocket_name}
+          <b>Rocket name:</b> {data.launch.rocket.rocket_name}
         </p>
         <p>
           <b>Rocket type:</b> {data.launch.rocket.rocket_type}
@@ -81,6 +82,7 @@ function Launch(props) {
           <b>Details: </b>
           {data.launch.details}
         </p>
+        <Link to='/'>Go back</Link>
       </div>
     </div>
   );
