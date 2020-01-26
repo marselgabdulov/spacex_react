@@ -1,0 +1,122 @@
+.launch {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+}
+
+
+@media screen and (max-width: 1023px) and (orientation: landscape) {
+    .launch {
+        margin-top: 2em;
+        width: 90%;
+        margin-left: 5%;
+        height: auto;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .launch__info {
+        width: 100%;
+    }
+
+    .launch__image {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 599px) and (orientation: portrait) {
+    .launch {
+        margin-top: 2em;
+        width: 90%;
+        margin-left: 5%;
+        height: auto;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .launch__info {
+        width: 100%;
+    }
+
+    .launch__image {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (min-width: 600px) and (orientation: portrait) {
+    .launch {
+        margin-top: 5em;
+        width: 90%;
+        margin-left: 5%;
+        height: auto;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .launch__info {
+        width: 100%;
+    }
+
+    .launch__image {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (min-width: 900px) and (orientation: landscape) {
+    .launch {
+        width: 90%;
+        margin-left: 5%;
+        height: 90vh;
+        align-items: center;
+    }
+
+    .launch__info {
+        width: 48%;
+    }
+
+    .launch__image {
+        width: 48%;
+        height: auto;
+    }
+}
+
+@media (min-width: 1200px) {
+    .launch {
+        width: 80%;
+        margin-left: 10%;
+        height: 90vh;
+        align-items: center;
+    }
+
+    .launch__info {
+        width: 48%;
+    }
+
+    .launch__image {
+        width: 48%;
+        height: auto;
+    }
+}
+
+@media (min-width: 1800px) {
+    .launch {
+        width: 60%;
+        margin-left: 20%;
+        height: 90vh;
+        align-items: center;
+    }
+
+    .launch__info {
+        width: 48%;
+    }
+
+    .launch__image {
+        width: 48%;
+        height: auto;
+    }
+
+
+}

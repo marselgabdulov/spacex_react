@@ -2,7 +2,10 @@ import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 import { withRouter } from 'react-router-dom';
+import Moment from 'react-moment';
 import Loader from '../Loader/Loader';
+import tesla from './tesla.jpg';
+import './Launch.css';
 
 function Launch(props) {
   let launch_id = props.location.pathname.split('/').slice(-1)[0];
@@ -34,15 +37,51 @@ function Launch(props) {
 
   return (
     <div className='launch'>
-      hello
-      <p>{data.launch.id}</p>
-      <p>{data.launch.launch_success}</p>
-      <p>{data.launch.launch_date_local}</p>
-      <p>{data.launch.details}</p>
-      <p>{data.launch.mission_name}</p>
-      <p>{data.launch.rocket_name}</p>
-      <p>{data.launch.rocket_type}</p>
-      <p>{data.launch.links.flickr_images}</p>
+      {data.launch.links.flickr_images.length > 0 ? (
+        <img
+          src={data.launch.links.flickr_images[0]}
+          alt='launch'
+          className='launch__image'
+        />
+      ) : (
+        <img src={tesla} alt='tesla' className='launch__image' />
+      )}
+      <div className='launch__info'>
+        <h2>Mission number {data.launch.id}</h2>
+        <span>
+          <b>Status:</b>{' '}
+          {data.launch.launch_success ? (
+            <span style={{ color: 'green', textTransform: 'uppercase' }}>
+              success
+            </span>
+          ) : (
+            <span style={{ color: 'red', textTransform: 'uppercase' }}>
+              fail
+            </span>
+          )}
+        </span>
+
+        <p>
+          <b>Mission name:</b> {data.launch.mission_name}
+        </p>
+        <p>
+          <b>Rocken name:</b> {data.launch.rocket.rocket_name}
+        </p>
+        <p>
+          <b>Rocket type:</b> {data.launch.rocket.rocket_type}
+        </p>
+
+        <p>
+          <b>Date:</b>{' '}
+          <Moment format='HH:mm DD-MM-YYYY'>
+            {data.launch.launch_date_local}
+          </Moment>
+        </p>
+        <p>
+          <b>Details: </b>
+          {data.launch.details}
+        </p>
+      </div>
     </div>
   );
 }
