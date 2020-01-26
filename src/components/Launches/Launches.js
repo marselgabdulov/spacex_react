@@ -2,6 +2,7 @@ import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 import { Link, withRouter } from 'react-router-dom';
+import Loader from '../Loader/Loader';
 
 const GET_LAUNCHES = gql`
   {
@@ -16,7 +17,7 @@ const GET_LAUNCHES = gql`
 
 function Launches() {
   const { loading, error, data } = useQuery(GET_LAUNCHES);
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loader />;
   if (error) return <p>Error :(</p>;
 
   return data.launchesPast.map(

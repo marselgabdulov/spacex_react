@@ -2,6 +2,7 @@ import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 import { withRouter } from 'react-router-dom';
+import Loader from '../Loader/Loader';
 
 function Launch(props) {
   let launch_id = props.location.pathname.split('/').slice(-1)[0];
@@ -28,7 +29,7 @@ function Launch(props) {
   const { loading, error, data } = useQuery(GET_LAUNCH(launch_id));
   console.log(data);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loader />;
   if (error) return <p>Error :(</p>;
 
   return (
